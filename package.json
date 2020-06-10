@@ -1,0 +1,31 @@
+{
+  "name": "mynotes",
+  "version": "1.0.0",
+  "description": "Simply a static site for the various notes I want to take on interesting topics (i.e. books I read, philosophy I'm studying, etc)",
+  "scripts": {
+    "dev": "node_modules/.bin/vuepress dev site",
+    "build": "node_modules/.bin/vuepress build site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Made-of-Clay/mynotes.git"
+  },
+  "author": "Adam Leis",
+  "license": "MIT",
+  "homepage": "https://github.com/Made-of-Clay/mynotes#readme",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.2.0",
+    "@vuepress/plugin-active-header-links": "^1.5.1",
+    "@vuepress/plugin-nprogress": "^1.5.1",
+    "@vuepress/plugin-register-components": "^1.5.1",
+    "@vuepress/plugin-search": "^1.5.1",
+    "autoprefixer": "^9.8.0",
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^1.4.6",
+    "vuepress": "^1.5.0",
+    "vuepress-plugin-container": "^2.1.4",
+    "watchpack": "1.6.1"
+  }
+}
