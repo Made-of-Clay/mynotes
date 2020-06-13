@@ -1,31 +1,24 @@
 {
   "name": "mynotes",
-  "version": "1.0.0",
-  "description": "Simply a static site for the various notes I want to take on interesting topics (i.e. books I read, philosophy I'm studying, etc)",
+  "private": true,
   "scripts": {
-    "dev": "node_modules/.bin/vuepress dev site",
-    "build": "node_modules/.bin/vuepress build site"
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Made-of-Clay/mynotes.git"
-  },
-  "author": "Adam Leis",
-  "license": "MIT",
-  "homepage": "https://github.com/Made-of-Clay/mynotes#readme",
-  "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.2.0",
-    "@vuepress/plugin-active-header-links": "^1.5.1",
-    "@vuepress/plugin-nprogress": "^1.5.1",
-    "@vuepress/plugin-register-components": "^1.5.1",
-    "@vuepress/plugin-search": "^1.5.1",
-    "autoprefixer": "^9.8.0",
-    "cssnano": "^4.1.10",
-    "postcss-cli": "^7.1.1",
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.5.0",
+    "gridsome": "^0.7.13",
+    "gridsome-source-static-meta": "github:noxify/gridsome-source-static-meta#master",
     "postcss-import": "^12.0.1",
-    "tailwindcss": "^1.4.6",
-    "vuepress": "^1.5.0",
-    "vuepress-plugin-container": "^2.1.4",
-    "watchpack": "1.6.1"
+    "postcss-nested": "^4.2.1",
+    "prism-themes": "^1.3.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2"
+  },
+  "devDependencies": {
+    "gridsome-plugin-tailwindcss": "^2.2.43"
   }
 }
