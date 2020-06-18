@@ -1,3 +1,10 @@
+---
+slug: rule1
+title: Rule \#1
+tags: "Rule #1, Phil Town, investing"
+category: Investing
+---
+
 # *Rule #1*
 
 <img src="./images/rule1-book-cover.jpg" alt="Rule #1 Cover" style="float:right">
