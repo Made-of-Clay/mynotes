@@ -1,5 +1,5 @@
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'My Notes',
 
   plugins: [
     {
@@ -23,17 +23,9 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        typeName: 'Author',
-        path: './content/author/*.md'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        typeName: 'Blog',
-        path: './content/blog/**/*.md',
+        typeName: 'Note',
+        path: `./content/**/*.md`,
         refs: {
-          author: 'Author',
           tags: {
             typeName: 'Tag',
             create: true
@@ -44,12 +36,20 @@ module.exports = {
           }
         }
       }
-    }
+    },
   ],
   templates: {
-    Blog: [{
-      path: '/blog/:title',
-      component: './src/templates/BlogEntry.vue'
+    // append Category and Tag to types and build templates from them
+    // ...([...types, 'Category', 'Tag'].reduce((templates, type) => {
+      // templates[type] = [{
+        // path: `/${type.toLowerCase()}/:title`,
+        // component: `./src/templates/${type}.vue`,
+      // }];
+      // return templates;
+    // }, {})),
+    Note: [{
+      path: '/note/:title',
+      component: './src/templates/Note.vue'
     }],
     Category: [{
       path: '/category/:title',
@@ -63,6 +63,5 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias.set('@modules', '@/resources/js/modules');
     config.resolve.alias.set('@utilities', '@/resources/js/utilities');
-    
   }
 }
