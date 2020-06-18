@@ -22,36 +22,31 @@
     </section>
   </Layout>
 </template>
-
-
+<!-- TODO use some component for tag/category markup -->
 <page-query>
   query($id: ID!) {
-    
-    
     tag(id: $id) {
       title
       belongsTo {
         edges {
           node {
-            ... on Blog {
+            ... on Note {
               id
               title
-              path 
-              humanTime : created(format:"Do MMMM YYYY")
-              datetime : created(format:"ddd MMM DD YYYY hh:mm:ss zZ")
+              path
             }
           }
         }
       }
     }
-    
+
   }
 </page-query>
 
 <script>
 export default {
   metaInfo: {
-    title: "Tags"
+    title: 'Tags'
   }
 };
 </script>
