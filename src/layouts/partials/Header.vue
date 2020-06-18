@@ -8,21 +8,25 @@
       class="company-logo-link block text-white font-bold text-2xl md:text-3xl hover:text-pink-500"
       to="/"
       aria-label="Back to home"
-    >{{ $static.metadata.siteName }}</g-link>
+    >
+      {{ $static.metadata.siteName }}
+    </g-link>
 
     <nav id="nav" class="nav hidden md:flex">
       <ul class="menu flex flex-col md:flex-row items-center list-reset text-base">
         <li
-          class="level-1 mb-4 md:mr-4 md:mb-0"
           v-for="element in $static.metadata.menu"
           :key="element.name"
+          class="mb-4 md:mr-4 md:mb-0"
         >
           <g-link
             :to="element.link"
-            class="link font-bold text-white hover:text-pink-500"
-            active-class="is-active-link"
-            exact-active-class="active text-pink-500"
-          >{{ element.name }}</g-link>
+            class="font-bold text-white hover:text-pink-600"
+            :class="buildDynamicClasses(element.name)"
+            exact-active-class="text-pink-500"
+          >
+            {{ element.name }}
+          </g-link>
         </li>
       </ul>
     </nav>
@@ -31,10 +35,27 @@
 
 <script>
 export default {
+  computed: {
+    category() {
+      let title;
+      if (this.$page) {
+        const { category, note } = this.$page;
+        if (category) {
+          title = category.title;
+        } else if (note && note.category) {
+          title = note.category.title;
+        }
+      }
+      return title || '';
+    },
+  },
+
   methods: {
-    socialIcon(element) {
-      return `/icons.svg#icon-${element.icon}`;
-    }
+    buildDynamicClasses(linkName) {
+      if (linkName.toLowerCase() === this.category.toLowerCase()) {
+        return 'text-pink-500'
+      }
+    },
   }
 };
 </script>
