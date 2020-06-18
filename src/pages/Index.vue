@@ -4,7 +4,7 @@
       <h1 class="page-title">Welcome to Skeleventy!</h1>
       <div class="content">
         <p>
-          A 
+          A
           <a href="https://www.gridsome.org">Gridsome</a> starter built with
           <a href="https://tailwindcss.com">TailwindCSS</a>.
         </p>
@@ -26,7 +26,7 @@
 <script>
 export default {
   metaInfo: {
-    title: "Home"
+    title: 'Home'
   }
 };
 </script>
