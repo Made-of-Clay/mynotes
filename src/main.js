@@ -11,5 +11,5 @@ export default function (Vue, { router, head, isClient }) {
   // Add attributes to HTML tag
   head.htmlAttrs = { lang: 'en', class: 'min-h-full antialiased' }
   // Add attributes to BODY tag
-  head.bodyAttrs = { class: 'text-purple-900 leading-normal text-lg' }
+  head.bodyAttrs = { class: 'text-purple-900 leading-normal' }
 }
