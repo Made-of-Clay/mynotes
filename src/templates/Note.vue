@@ -1,28 +1,18 @@
 <template>
-  <Layout>
-    <section id="note-template" class="column centre flex-1">
-      <div class="post-header mb-12 md:mb-20">
-        <h1
-          class="page-title text-3xl md:text-center md:text-5xl lg:text-6xl"
-          v-html="$page.note.title"
+  <Layout class="flex">
+    <SidebarOutline class="w-full sm:w-1/3 md:w-1/4" />
+    <article id="note-template" class="w-full sm:w-2/3 md:w-3/4 noteTemplate">
+      <figure v-if="$page.note.image" class="my-10 md:my-20">
+        <g-image :alt="$page.note.image_caption || ''" :src="$page.note.image" />
+        <figcaption
+          v-if="$page.note.image_caption"
+          class="text-center text-sm italic text-gray-600 mt-4"
+          v-text="$page.note.image_caption"
         />
-        <div v-if="$page.note.category" class="text-sm md:text-base text-gray-600 flex justify-center">
-          <p class="px-2">—</p>
-          <p class="category">
-            Posted in
-            <g-link :to="$page.note.category.path">{{ $page.note.category.title }}</g-link>
-          </p>
-        </div>
-        <figure v-if="$page.note.image" class="mt-10 md:mt-20">
-          <g-image :alt="$page.note.image_caption" :src="$page.note.image" />
-          <figcaption
-            class="text-center text-sm italic text-gray-600 mt-4"
-          >{{ $page.note.image_caption }}</figcaption>
-        </figure>
-      </div>
+      </figure>
 
       <div class="content post md:px-16">
-        <p v-html="$page.note.excerpt" />
+        <p v-if="$page.note.excerpt" v-html="$page.note.excerpt" />
         <div v-html="$page.note.content" />
         <ul v-if="$page.note.tags" class="flex pt-8 border-t border-gray-100">
           <li v-for="tag in $page.note.tags" :key="tag.id" class="mr-2">
@@ -35,7 +25,7 @@
           </li>
         </ul>
       </div>
-    </section>
+    </article>
   </Layout>
 </template>
 
@@ -58,15 +48,59 @@
         path
       }
     }
+    # following data used for SidebarOutline
+    allNote {
+      edges {
+        node {
+          id
+          title
+          path
+          category {
+            title
+          }
+          headings {
+            depth
+            value
+            anchor
+          }
+        }
+      }
+    }
   }
 </page-query>
 
 <script>
+import SidebarOutline from '~/components/SidebarOutline';
+
 export default {
   metaInfo() {
     return {
       title: this.$page.note.title
     };
-  }
+  },
+
+  components: {
+    SidebarOutline,
+  },
 };
 </script>
+
+<style lang="scss">
+.noteTemplate {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+  h5 {
+    @apply text-gray-700;
+  }
+}
+</style>
