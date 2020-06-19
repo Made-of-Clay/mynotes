@@ -1,7 +1,7 @@
 ---
 tags: "apologetics, William Lane Craig, C. S. Lewis, Louis Pasteur"
-slug: apologetics-home
-title: Apologetics Home
+slug: apologetics
+title: Apologetics
 category: Apologetics
 image: ./foo.jpg
 ---

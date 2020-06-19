@@ -1,7 +1,6 @@
 ---
-slug: investing-home
 tags: "investing, Phil Town"
-title: Investing Notes
+title: Investing
 category: Investing
 ---
 
