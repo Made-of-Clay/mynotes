@@ -22,7 +22,7 @@
     </section>
   </Layout>
 </template>
-<!-- TODO use some component for tag/category markup -->
+
 <page-query>
   query($id: ID!) {
     tag(id: $id) {

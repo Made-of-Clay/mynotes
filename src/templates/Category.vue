@@ -5,7 +5,7 @@
         class="page-title text-purple-900 md:text-center mb-16"
         v-text="$page.category.title"
       />
-      <ul class="categoryNotes">
+      <ul class="categoryNotes mx-auto text-center">
         <li
           v-for="note in orderedNotes"
           :key="note.id"
@@ -46,8 +46,9 @@
 </page-query>
 
 <script>
-import noteOrders from '~/order'; // this is not my ideal way, but querying each category and keeping up to date isn't either... might learn better way
+import orderedNotes from '~/mixins/orderedNotes.mixin.js';
 
+// in hindsight, this ordering of categories isn't super important, but oh well
 export default {
   metaInfo: vm => ({
     title: vm.$page.category.title,
@@ -57,13 +58,22 @@ export default {
     stripSlashes: str => str.replace(/\\/, ''),
   },
 
+  mixins: [
+    orderedNotes,
+  ],
+
+  data: () => ({
+    orderedNotesIncludesH1: true,
+  }),
   computed: {
-    order: vm => vm.$page && vm.$page.category ? noteOrders[vm.$page.category.title] : [],
-    orderedNotes: vm => vm.$page.category.belongsTo.edges.reduce((notes, { node: note }) => {
-      const index = vm.order.indexOf(note.fileInfo.name);
-      notes[index] = note;
-      return notes;
-    }, []),
+    category: vm => vm.$page.category.title,
+    allNotes: vm => vm.$page.category.belongsTo.edges || [],
   },
 };
 </script>
+
+<style>
+.categoryNotes {
+  max-width: 200px;
+}
+</style>

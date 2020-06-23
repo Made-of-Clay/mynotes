@@ -1,12 +1,12 @@
 <template>
   <aside class="sidebarOutline">
     <ul>
-      <li v-for="item in outline" :key="item.id">
+      <li v-for="item in orderedNotes" :key="item.id">
         <g-link :to="item.path">
           <h1
             class="text-xl border-gray-300 border-t text-gray-500 hover:text-purple-800 transition-colors duration-200"
             :class="currentClass(item.path)"
-            v-text="item.title"
+            v-html="item.title.replace('\\', '')"
           />
         </g-link>
         <ul v-if="item.headings.length">
@@ -27,23 +27,39 @@
 </template>
 
 <script>
+import orderedNotes from '~/mixins/orderedNotes.mixin.js';
+
 export default {
+  mixins: [
+    orderedNotes,
+  ],
+
+  data: () => ({
+    orderedNotesIncludesH1: false,
+  }),
   computed: {
     category: vm => vm.$page.note.category.title,
-    outline() {
-      let outline = [];
-      if (this.$page.allNote && this.$page.allNote.edges.length) {
-        outline = this.$page.allNote.edges.reduce((accum, { node }) => {
-          if (node.category && node.category.title === this.category) {
-            accum.push(Object.assign({}, node, {
-              headings: (node.headings || []).filter(heading => heading.depth > 1)
-            }));
-          }
-          return accum;
-        }, []);
-      }
-      return outline;
-    },
+    allNotes: vm => vm.$page.allNote.edges || [],
+    // outline() {
+    //   let outline = [];
+    //   if (this.$page.allNote && this.$page.allNote.edges.length) {
+    //     outline = this.$page.allNote.edges.reduce((accum, { node }) => {
+    //       if (node.category && node.category.title === this.category) {
+    //         accum.push(Object.assign({}, node, {
+    //           headings: (node.headings || []).filter(heading => heading.depth > 1)
+    //         }));
+    //       }
+    //       return accum;
+    //     }, []);
+    //   }
+    //   return outline;
+    // },
+    // order: vm => vm.$page && vm.$page.note ? noteOrders[vm.$page.note.category.title] : [],
+    // orderedNotes: vm => vm.$page.allNote.edges.reduce((notes, { node: note }) => {
+    //   const index = vm.order.indexOf(note.fileInfo.name);
+    //   notes[index] = note;
+    //   return notes;
+    // }, []),
   },
 
   methods: {

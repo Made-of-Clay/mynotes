@@ -55,6 +55,9 @@
           id
           title
           path
+          fileInfo {
+            name
+          }
           category {
             title
           }
