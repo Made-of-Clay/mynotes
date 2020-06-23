@@ -1,8 +1,8 @@
 ---
-slug: rule1
 title: Rule \#1
 tags: "Rule #1, Phil Town, investing"
 category: Investing
+order: 2
 ---
 
 # *Rule #1*
