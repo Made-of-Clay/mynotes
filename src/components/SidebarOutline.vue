@@ -9,6 +9,7 @@
             v-html="item.title.replace('\\', '')"
           />
         </g-link>
+        <!-- TODO consider toggling non-h1 tags depending on which page/content is focused (don't show others' heading links unless toggled) -->
         <ul v-if="item.headings.length">
           <li v-for="subheading in item.headings" :key="`${item.id}${subheading.anchor}`">
             <g-link :to="`${item.path}${subheading.anchor}`">
@@ -40,26 +41,6 @@ export default {
   computed: {
     category: vm => vm.$page.note.category.title,
     allNotes: vm => vm.$page.allNote.edges || [],
-    // outline() {
-    //   let outline = [];
-    //   if (this.$page.allNote && this.$page.allNote.edges.length) {
-    //     outline = this.$page.allNote.edges.reduce((accum, { node }) => {
-    //       if (node.category && node.category.title === this.category) {
-    //         accum.push(Object.assign({}, node, {
-    //           headings: (node.headings || []).filter(heading => heading.depth > 1)
-    //         }));
-    //       }
-    //       return accum;
-    //     }, []);
-    //   }
-    //   return outline;
-    // },
-    // order: vm => vm.$page && vm.$page.note ? noteOrders[vm.$page.note.category.title] : [],
-    // orderedNotes: vm => vm.$page.allNote.edges.reduce((notes, { node: note }) => {
-    //   const index = vm.order.indexOf(note.fileInfo.name);
-    //   notes[index] = note;
-    //   return notes;
-    // }, []),
   },
 
   methods: {
