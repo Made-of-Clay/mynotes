@@ -5,10 +5,16 @@
     <div id="wrapper" class="wrapper pb-16 md:pb-0 flex flex-col relative min-h-screen w-full">
       <HeaderPartial />
 
-      <!-- I don't like that I can't apply classes to Layout & have to do it here... -->
-      <main id="main" class="inner flex flex-1 flex-wrap py-5 lg:py-10">
-        <slot />
-      </main>
+      <transition name="fade" appear>
+        <!-- I don't like that I can't apply classes to Layout & have to do it here... -->
+        <main
+          id="main"
+          :key="$route.path"
+          class="inner flex flex-1 flex-wrap py-5 lg:py-10"
+        >
+          <slot />
+        </main>
+      </transition>
     </div>
 
     <ClientOnly>
@@ -36,3 +42,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.fade-enter-active {
+  transition: opacity .5s;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+</style>
