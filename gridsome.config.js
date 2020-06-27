@@ -37,6 +37,19 @@ module.exports = {
         }
       }
     },
+    // {
+    //   use: 'gridsome-plugin-flexsearch',
+    //   options: {
+    //     searchFields: ['title'],
+    //     collections: [
+    //       {
+    //         typeName: 'Note',
+    //         indexName: 'Note',
+    //         fields: ['title']
+    //       }
+    //     ]
+    //   }
+    // }
   ],
   templates: {
     // append Category and Tag to types and build templates from them

@@ -11,6 +11,7 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.5.0",
     "gridsome": "^0.7.13",
+    "gridsome-plugin-flexsearch": "^1.0.1",
     "gridsome-source-static-meta": "github:noxify/gridsome-source-static-meta#master",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
