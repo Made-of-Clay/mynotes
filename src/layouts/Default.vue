@@ -10,7 +10,8 @@
         <main
           id="main"
           :key="$route.path"
-          class="inner flex flex-1 flex-wrap py-5 lg:py-10"
+          class="inner py-5 lg:py-10"
+          :class="mainFlexClasses"
         >
           <slot />
         </main>
@@ -39,7 +40,11 @@ export default {
   components: {
     HeaderPartial,
     ResponsiveNav
-  }
+  },
+
+  computed: {
+    mainFlexClasses: vm => vm.$route.path !== '/' ? 'flex flex-1 flex-wrap' : '',
+  },
 }
 </script>
 
