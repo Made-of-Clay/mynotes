@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebarOutline">
-    <ul>
+    <ul class="list--unstyled">
       <li v-for="item in orderedNotes" :key="item.id">
         <g-link :to="item.path">
           <h1
@@ -10,7 +10,7 @@
           />
         </g-link>
         <!-- TODO consider toggling non-h1 tags depending on which page/content is focused (don't show others' heading links unless toggled) -->
-        <ul v-if="item.headings.length">
+        <ul v-if="item.headings.length" class="list--unstyled">
           <li v-for="subheading in item.headings" :key="`${item.id}${subheading.anchor}`">
             <g-link :to="`${item.path}${subheading.anchor}`">
               <component

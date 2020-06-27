@@ -14,7 +14,7 @@
     </g-link>
 
     <nav id="nav" class="nav hidden md:flex">
-      <ul class="menu flex flex-col md:flex-row items-center list-reset text-base">
+      <ul class="menu flex flex-col md:flex-row items-center list-reset text-base list--unstyled">
         <li
           v-for="element in $static.metadata.menu"
           :key="element.name"

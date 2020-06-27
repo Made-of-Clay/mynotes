@@ -14,7 +14,7 @@
       <div class="content post md:px-16">
         <p v-if="$page.note.excerpt" v-html="$page.note.excerpt" />
         <div v-html="$page.note.content" />
-        <ul v-if="$page.note.tags" class="flex pt-8 border-t border-gray-100">
+        <ul v-if="$page.note.tags" class="flex pt-8 border-t border-gray-100 list--unstyled">
           <li v-for="tag in $page.note.tags" :key="tag.id" class="mr-2">
             <g-link
               :to="tag.path"

@@ -1,0 +1,12 @@
+%list-spacing {
+    @apply my-4 pl-8;
+}
+
+ul:not(.list--unstyled) {
+    @extend %list-spacing;
+    list-style: disc;
+}
+ol:not(.list--unstyled) {
+    @extend %list-spacing;
+    list-style: decimal;
+}
