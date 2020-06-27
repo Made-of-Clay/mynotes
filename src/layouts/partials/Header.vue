@@ -5,10 +5,11 @@
     role="banner"
   >
     <g-link
-      class="company-logo-link block text-white font-bold text-2xl md:text-3xl hover:text-secondary"
+      class="company-logo-link block text-white font-bold text-xl md:text-2xl hover:text-secondary"
       to="/"
       aria-label="Back to home"
     >
+      <notes-icon color="white" size="50" class="inline-block" />
       {{ $static.metadata.siteName }}
     </g-link>
 
@@ -34,7 +35,13 @@
 </template>
 
 <script>
+import NotesIcon from '~/components/NotesIcon';
+
 export default {
+  components: {
+    NotesIcon,
+  },
+
   computed: {
     category() {
       let title;

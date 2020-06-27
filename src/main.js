@@ -11,5 +11,10 @@ export default function (Vue, { router, head, isClient }) {
   // Add attributes to HTML tag
   head.htmlAttrs = { lang: 'en', class: 'min-h-full antialiased' }
   // Add attributes to BODY tag
-  head.bodyAttrs = { class: 'text-purple-900 leading-normal' }
+  head.bodyAttrs = { class: 'text-primary leading-normal' }
 }
+
+// TODO add search to header and large search to main page
+// TODO wipe front page to only have large search (and maybe last updated or something? link to repo for easy editing?)
+// TODO commit, do 1st prod build (to see), add to netlify and deploy!
+// TODO add notes/highlights from Rule #1 for first entries
