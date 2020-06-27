@@ -2,7 +2,7 @@
   <Layout>
     <section id="container-centre" class="column centre flex-1">
       <h1
-        class="page-title text-purple-900 text-3xl md:text-center md:text-5xl mb-16 lg:mb-24 lg:text-6xl"
+        class="page-title text-primary text-3xl md:text-center md:text-5xl mb-16 lg:mb-24 lg:text-6xl"
       >Tag — {{ $page.tag.title }}</h1>
       <div class="posts">
         <article
@@ -12,7 +12,7 @@
         >
           <h2 class="text-4xl mb-3">
             <g-link
-              class="block text-pink-500 hover:text-purple-900"
+              class="block text-secondary hover:text-primary"
               :to="element.node.path"
             >{{ element.node.title }}</g-link>
           </h2>

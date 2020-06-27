@@ -18,7 +18,7 @@
           <li v-for="tag in $page.note.tags" :key="tag.id" class="mr-2">
             <g-link
               :to="tag.path"
-              class="inline-block border border-pink-300 px-4 py-2 text-pink-500 text-xs font-semibold rounded hover:text-white hover:bg-pink-500 hover:border-pink-500"
+              class="inline-block border border-green-300 px-4 py-2 text-secondary text-xs font-semibold rounded hover:text-white hover:bg-secondary hover:border-secondary"
             >
               {{tag.title}}
             </g-link>

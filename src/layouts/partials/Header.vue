@@ -1,11 +1,11 @@
 <template>
   <header
     id="header"
-    class="header bg-purple-900 flex flex-col md:flex-row md:justify-between items-center p-4 md:p-6"
+    class="header bg-primary flex flex-col md:flex-row md:justify-between items-center p-4 md:p-6"
     role="banner"
   >
     <g-link
-      class="company-logo-link block text-white font-bold text-2xl md:text-3xl hover:text-pink-500"
+      class="company-logo-link block text-white font-bold text-2xl md:text-3xl hover:text-secondary"
       to="/"
       aria-label="Back to home"
     >
@@ -21,9 +21,9 @@
         >
           <g-link
             :to="element.link"
-            class="font-bold text-white hover:text-pink-600"
+            class="font-bold text-white hover:text-green-400"
             :class="buildDynamicClasses(element.name)"
-            exact-active-class="text-pink-500"
+            exact-active-class="text-secondary"
           >
             {{ element.name }}
           </g-link>
@@ -53,7 +53,7 @@ export default {
   methods: {
     buildDynamicClasses(linkName) {
       if (linkName.toLowerCase() === this.category.toLowerCase()) {
-        return 'text-pink-500'
+        return 'text-secondary'
       }
     },
   }

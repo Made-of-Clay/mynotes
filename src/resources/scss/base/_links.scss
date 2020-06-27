@@ -1,9 +1,9 @@
 a {
-    @apply no-underline text-pink-500;
+    @apply no-underline text-secondary;
     transition: 0.25s all ease-out;
 
     &:hover {
-        @apply text-purple-900;
+        @apply text-primary;
     }
 }
 

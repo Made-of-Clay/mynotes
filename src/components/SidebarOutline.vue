@@ -46,7 +46,7 @@ export default {
   methods: {
     currentClass(path) {
       if (path === this.$page.note.path) {
-        return 'text-purple-900';
+        return 'text-primary';
       }
     },
   },

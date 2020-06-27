@@ -2,7 +2,7 @@
   <Layout>
     <section id="container-centre" class="column centre flex-1">
       <h1
-        class="page-title text-purple-900 md:text-center mb-16"
+        class="page-title text-primary md:text-center mb-16"
         v-text="$page.category.title"
       />
       <ul class="categoryNotes mx-auto text-center">
@@ -13,7 +13,7 @@
         >
           <g-link
             :to="note.path"
-            class="block text-pink-500 hover:text-purple-900"
+            class="block text-secondary hover:text-primary"
           >
             {{ note.title | stripSlashes }}
           </g-link>
