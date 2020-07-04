@@ -15,6 +15,5 @@ export default function (Vue, { router, head, isClient }) {
 }
 
 // TODO add search to header and large search to main page
-// TODO wipe front page to only have large search (and maybe last updated or something? link to repo for easy editing?)
 // TODO commit, do 1st prod build (to see), add to netlify and deploy!
 // TODO add notes/highlights from Rule #1 for first entries

@@ -19,7 +19,7 @@
     </div>
 
     <ClientOnly>
-      <ResponsiveNav /> <!-- TODO figure out wtf this is -->
+      <ResponsiveNav />
     </ClientOnly>
   </div>
 </template>
