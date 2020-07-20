@@ -1,3 +1,10 @@
+---
+tags: "improvement"
+slug: improvement
+title: Improvement
+category: Improvement
+---
+
 # Atomic Habits
 
 Inspired and quoting the book by the same name, *Atomic Habits*, by James Clear, outlines the importance that small, incremental changes make over the long-haul.
